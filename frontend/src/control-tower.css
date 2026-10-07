@@ -1,0 +1,2280 @@
+/* =========================================================
+   BancoCloud - Centro de Operaciones y Trazabilidad
+   ========================================================= */
+
+.ct-shell {
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.ct-main-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ct-main-header h2 {
+  margin: 5px 0 0;
+  font-size: 24px;
+}
+
+.ct-intro {
+  max-width: 760px;
+  margin: 8px 0 0;
+}
+
+.ct-main-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.ct-collapse-button,
+.ct-close-detail,
+.ct-history-button {
+  border: 1px solid #334766;
+  background: #101d32;
+  color: #dce8fb;
+  border-radius: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ct-collapse-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+}
+
+.ct-collapse-button:hover,
+.ct-close-detail:hover,
+.ct-history-button:hover {
+  border-color: #4b6389;
+  background: #14243d;
+}
+
+.ct-chevron {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.18s ease;
+}
+
+.ct-chevron.open {
+  transform: rotate(180deg);
+}
+
+.ct-message,
+.ct-loading {
+  margin-top: 18px;
+}
+
+
+/* =========================
+   Resumen operacional
+   ========================= */
+
+.ct-health-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.ct-health-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid
+    rgba(148, 163, 184, 0.12);
+  border-radius: 15px;
+  background: rgba(5, 17, 37, 0.62);
+}
+
+.ct-health-card > span {
+  display: block;
+  color: #7185a7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ct-health-card small {
+  display: block;
+  margin-top: 8px;
+  color: #7890b5;
+  line-height: 1.4;
+}
+
+.ct-health-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ct-health-value strong {
+  color: #eef5ff;
+  font-size: 15px;
+}
+
+
+/* =========================
+   Estados
+   ========================= */
+
+.ct-status {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  white-space: nowrap;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.ct-status.success {
+  color: #86efac;
+  background: rgba(22, 163, 74, 0.15);
+  border: 1px solid
+    rgba(74, 222, 128, 0.2);
+}
+
+.ct-status.danger {
+  color: #fca5a5;
+  background: rgba(185, 28, 28, 0.18);
+  border: 1px solid
+    rgba(248, 113, 113, 0.2);
+}
+
+.ct-status.neutral {
+  color: #cbd5e1;
+  background: rgba(71, 85, 105, 0.2);
+  border: 1px solid
+    rgba(148, 163, 184, 0.17);
+}
+
+
+/* =========================
+   Protección Gold
+   ========================= */
+
+.ct-resilience-banner {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border-radius: 15px;
+  border: 1px solid
+    rgba(96, 165, 250, 0.2);
+  background: rgba(23, 55, 93, 0.22);
+}
+
+.ct-resilience-banner.protected {
+  border-color:
+    rgba(45, 212, 191, 0.25);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(6, 78, 59, 0.27),
+      rgba(10, 38, 65, 0.38)
+    );
+}
+
+.ct-resilience-banner > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ct-resilience-banner strong {
+  color: #e7f5ff;
+  font-size: 15px;
+}
+
+.ct-resilience-banner p {
+  margin: 8px 0 0;
+  color: #a9bdd9;
+  line-height: 1.55;
+}
+
+.ct-resilience-kicker,
+.ct-section-kicker {
+  color: #59c3ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Contadores
+   ========================= */
+
+.ct-count-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    minmax(0, 1fr)
+  );
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ct-count-grid > div {
+  padding: 13px 14px;
+  border-radius: 12px;
+  border: 1px solid
+    rgba(148, 163, 184, 0.09);
+  background: #09172a;
+}
+
+.ct-count-grid span {
+  display: block;
+  color: #7185a7;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.ct-count-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: #f0f6ff;
+  font-size: 18px;
+}
+
+
+/* =========================
+   Acordeones
+   ========================= */
+
+.ct-accordions {
+  margin-top: 22px;
+  border-top: 1px solid
+    rgba(148, 163, 184, 0.1);
+}
+
+.ct-accordion {
+  border-bottom: 1px solid
+    rgba(148, 163, 184, 0.1);
+}
+
+.ct-accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 4px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ct-accordion-toggle:hover h3 {
+  color: #ffffff;
+}
+
+.ct-accordion-toggle h3 {
+  margin: 4px 0 0;
+  color: #e7f0fc;
+  font-size: 18px;
+}
+
+.ct-accordion-toggle p {
+  max-width: 760px;
+  margin: 6px 0 0;
+  color: #788dab;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ct-accordion-toggle .ct-chevron {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: #a8bddb;
+  background: rgba(13, 37, 70, 0.72);
+}
+
+.ct-accordion-body {
+  padding: 0 0 22px;
+}
+
+
+/* =========================
+   Flujo visual
+   ========================= */
+
+.ct-flow-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0 18px;
+  padding: 12px;
+  border-radius: 13px;
+  border: 1px solid
+    rgba(96, 165, 250, 0.13);
+  background: rgba(7, 20, 41, 0.54);
+  overflow-x: auto;
+}
+
+.ct-flow-fragment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.ct-flow-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(15, 36, 65, 0.82);
+}
+
+.ct-flow-step > span {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  color: #bde7ff;
+  background: rgba(14, 116, 144, 0.35);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.ct-flow-step strong {
+  color: #d8e7f9;
+  font-size: 11px;
+}
+
+.ct-flow-arrow {
+  color: #53719a;
+  font-weight: 900;
+}
+
+
+/* =========================
+   Encabezados internos
+   ========================= */
+
+.ct-subsection-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.ct-subsection-head h4 {
+  margin: 0;
+  color: #eef5ff;
+  font-size: 15px;
+}
+
+.ct-subsection-head p {
+  margin: 5px 0 0;
+  color: #7185a7;
+  font-size: 11px;
+}
+
+
+/* =========================
+   Tablas
+   ========================= */
+
+.ct-table-wrap {
+  overflow-x: auto;
+  border-radius: 13px;
+  border: 1px solid
+    rgba(148, 163, 184, 0.09);
+}
+
+.ct-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ct-table th {
+  padding: 11px 12px;
+  color: #7185a7;
+  background: rgba(4, 14, 31, 0.84);
+  font-size: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.ct-table td {
+  padding: 12px;
+  color: #bfcee5;
+  border-top: 1px solid
+    rgba(148, 163, 184, 0.07);
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.ct-table td strong,
+.ct-table td span {
+  display: block;
+}
+
+.ct-table td strong {
+  color: #e7f0fc;
+}
+
+.ct-table td > span:not(.ct-status) {
+  margin-top: 4px;
+  color: #7185a7;
+}
+
+.ct-operation-id {
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+  font-size: 10px;
+}
+
+.ct-selected-row {
+  background: rgba(24, 57, 97, 0.22);
+}
+
+
+/* =========================
+   Trazabilidad completa
+   ========================= */
+
+.ct-trace-panel {
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: 15px;
+  border: 1px solid
+    rgba(96, 165, 250, 0.18);
+  background: rgba(3, 11, 27, 0.58);
+}
+
+.ct-trace-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ct-trace-head h3 {
+  margin: 4px 0 0;
+  color: #eef6ff;
+}
+
+.ct-trace-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ct-close-detail {
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.ct-trace-identity {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ct-trace-identity > div {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 11px;
+  background: rgba(12, 29, 55, 0.64);
+}
+
+.ct-trace-identity span {
+  display: block;
+  color: #7185a7;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.ct-trace-identity code {
+  display: block;
+  margin-top: 6px;
+  color: #cbdcf3;
+  overflow-wrap: anywhere;
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+}
+
+.ct-trace-identity small {
+  display: block;
+  margin-top: 7px;
+  color: #657b9c;
+  line-height: 1.45;
+}
+
+.ct-trace-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.ct-trace-card,
+.ct-audit-card,
+.ct-lineage-card {
+  padding: 14px;
+  border-radius: 13px;
+  border: 1px solid
+    rgba(148, 163, 184, 0.08);
+  background: rgba(7, 20, 41, 0.7);
+}
+
+.ct-trace-title {
+  display: block;
+  margin-bottom: 10px;
+  color: #7f96b8;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ct-trace-row,
+.ct-audit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px solid
+    rgba(148, 163, 184, 0.07);
+}
+
+.ct-trace-row:first-of-type,
+.ct-audit-row:first-of-type {
+  border-top: 0;
+}
+
+.ct-trace-row strong,
+.ct-trace-row span,
+.ct-audit-row strong,
+.ct-audit-row span {
+  display: block;
+}
+
+.ct-trace-row strong,
+.ct-audit-row strong {
+  color: #e0ebfa;
+  font-size: 12px;
+}
+
+.ct-trace-row span,
+.ct-audit-row span {
+  margin-top: 3px;
+  color: #7489aa;
+  font-size: 10px;
+}
+
+.ct-trace-value {
+  text-align: right;
+}
+
+.ct-trace-value .ct-status {
+  margin-left: auto;
+  margin-bottom: 4px;
+}
+
+.ct-audit-card {
+  margin-top: 12px;
+}
+
+.ct-audit-row > div:last-child {
+  text-align: right;
+}
+
+.ct-correlation-label {
+  margin-top: 5px !important;
+  color: #7891b7 !important;
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+}
+
+
+/* =========================
+   Linaje / recorrido analítico
+   ========================= */
+
+.ct-lineage-card {
+  margin-top: 12px;
+}
+
+.ct-lineage-card.available {
+  border-color:
+    rgba(74, 222, 128, 0.16);
+}
+
+.ct-lineage-card.pending {
+  border-color:
+    rgba(251, 191, 36, 0.2);
+}
+
+.ct-lineage-description,
+.ct-lineage-pending p {
+  margin: 0 0 12px;
+  color: #9fb1cc;
+  line-height: 1.55;
+}
+
+.ct-lineage-pending strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #f5d888;
+}
+
+.ct-lineage-pending p {
+  margin: 0;
+}
+
+.ct-lineage-flow {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.ct-lineage-flow > div {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(13, 32, 59, 0.67);
+}
+
+.ct-lineage-flow > div > span {
+  display: block;
+  color: #7085a6;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.ct-lineage-flow > div > strong {
+  display: block;
+  margin-top: 4px;
+  color: #e0ebfa;
+  font-size: 11px;
+}
+
+
+/* =========================
+   Decisiones humanas
+   ========================= */
+
+.ct-decision-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ct-decision-card {
+  padding: 14px;
+  border-radius: 13px;
+  border: 1px solid
+    rgba(148, 163, 184, 0.09);
+  background: rgba(7, 20, 41, 0.63);
+}
+
+.ct-decision-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ct-decision-main strong,
+.ct-decision-main small,
+.ct-decision-type {
+  display: block;
+}
+
+.ct-decision-type {
+  margin-bottom: 4px;
+  color: #59c3ff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ct-decision-main strong {
+  color: #e6effc;
+}
+
+.ct-decision-main small {
+  margin-top: 4px;
+  color: #7185a7;
+}
+
+.ct-decision-meta {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ct-decision-meta > div {
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: rgba(11, 28, 52, 0.65);
+}
+
+.ct-decision-meta span {
+  display: block;
+  color: #7185a7;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.ct-decision-meta strong {
+  display: block;
+  margin-top: 4px;
+  color: #cddbf0;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.ct-decision-evidence {
+  margin-top: 10px;
+  color: #879bb9;
+  font-size: 11px;
+}
+
+.ct-decision-evidence strong,
+.ct-decision-evidence code {
+  color: #c9d9ee;
+}
+
+.ct-decision-evidence code {
+  margin-left: 5px;
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+}
+
+.ct-divider {
+  margin: 0 7px;
+  color: #425775;
+}
+
+.ct-history-button {
+  display: block;
+  margin: 14px auto 0;
+  padding: 9px 13px;
+  font-size: 11px;
+}
+
+
+/* =========================
+   Calidad / registros aislados
+   ========================= */
+
+.ct-quarantine {
+  margin-top: 14px;
+  padding: 15px;
+  border-radius: 13px;
+  border: 1px solid
+    rgba(248, 113, 113, 0.17);
+  background: rgba(82, 15, 25, 0.13);
+}
+
+.ct-quarantine-head h4 {
+  margin: 4px 0 0;
+  color: #f0dce0;
+}
+
+.ct-quarantine-head p {
+  margin: 6px 0 0;
+  color: #a6848c;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ct-quarantine-row {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid
+    rgba(248, 113, 113, 0.11);
+}
+
+.ct-quarantine-row > div {
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: rgba(48, 20, 31, 0.43);
+}
+
+.ct-quarantine-row span {
+  display: block;
+  color: #a6848c;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.ct-quarantine-row strong {
+  display: block;
+  margin-top: 4px;
+  color: #ead0d5;
+  font-size: 11px;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 1100px) {
+  .ct-health-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ct-count-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .ct-decision-meta {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ct-quarantine-row {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ct-lineage-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-lineage-flow > span {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+}
+
+/* =========================================================
+   Ajustes finales de legibilidad
+   ========================================================= */
+
+/* Identificadores técnicos del detalle */
+.ct-trace-identity code {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Explicación bajo los identificadores */
+.ct-trace-identity small {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* Más separación entre "Gold" y su estado */
+.ct-lineage-flow .ct-status {
+  margin-top: 7px;
+}
+
+/* Acción visual para abrir/cerrar cada sección */
+.ct-accordion-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 82px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #a9bdd9;
+  background: rgba(13, 37, 70, 0.72);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Flecha creada con CSS para que siempre quede centrada */
+.ct-section-chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #9fb7d7;
+  border-bottom: 2px solid #9fb7d7;
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+  margin-top: -3px;
+}
+
+.ct-section-chevron.open {
+  transform: rotate(225deg);
+  margin-top: 3px;
+}
+
+/* Evita que el encabezado del estado DataOps se vea apretado */
+.ct-health-card:nth-child(3) .ct-health-value {
+  align-items: flex-start;
+}
+
+.ct-health-card:nth-child(3) .ct-health-value > strong {
+  max-width: 125px;
+  line-height: 1.35;
+}
+
+/* Mejor lectura de los registros contables */
+.ct-trace-card .ct-trace-row > div:first-child {
+  min-width: 0;
+}
+
+.ct-trace-card .ct-trace-row > div:first-child span {
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .ct-main-header,
+  .ct-trace-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ct-main-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .ct-health-grid,
+  .ct-count-grid,
+  .ct-trace-grid,
+  .ct-trace-identity,
+  .ct-decision-meta,
+  .ct-quarantine-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-accordion-toggle {
+    align-items: flex-start;
+  }
+
+  .ct-trace-head-actions {
+    flex-wrap: wrap;
+  }
+
+  .ct-flow-strip {
+    align-items: flex-start;
+  }
+}
+
+.ct-trace-section-heading {
+  margin-bottom: 10px;
+}
+
+.ct-trace-section-heading .ct-trace-title {
+  margin-bottom: 3px;
+}
+
+.ct-trace-section-heading small {
+  color: #667d9f;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   Acciones administrativas DataOps
+   ========================================================= */
+
+.ct-admin-actions-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 18px;
+  padding: 15px 16px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 13px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 35, 66, 0.58),
+      rgba(7, 20, 41, 0.62)
+    );
+}
+
+.ct-admin-action-copy {
+  min-width: 0;
+}
+
+.ct-admin-action-copy h4 {
+  margin: 4px 0 0;
+  color: #e8f1fd;
+  font-size: 15px;
+}
+
+.ct-admin-action-copy p {
+  max-width: 620px;
+  margin: 6px 0 0;
+  color: #7f93b1;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ct-admin-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.ct-admin-action-buttons button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ct-action-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: -4px 0 18px;
+  padding: 14px 15px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 12px;
+  background: rgba(15, 45, 79, 0.32);
+}
+
+.ct-action-confirm.warning {
+  border-color: rgba(251, 191, 36, 0.24);
+  background: rgba(120, 75, 12, 0.13);
+}
+
+.ct-action-confirm strong {
+  color: #e3edf9;
+  font-size: 12px;
+}
+
+.ct-action-confirm p {
+  max-width: 720px;
+  margin: 5px 0 0;
+  color: #8da2c0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ct-action-confirm.warning strong {
+  color: #f7d98a;
+}
+
+.ct-action-confirm-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ct-action-notice {
+  margin: -4px 0 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.ct-action-notice strong,
+.ct-action-notice p {
+  display: block;
+}
+
+.ct-action-notice strong {
+  font-size: 12px;
+}
+
+.ct-action-notice p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ct-action-notice.success {
+  color: #bbf7d0;
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  background: rgba(20, 83, 45, 0.24);
+}
+
+.ct-action-notice.warning {
+  color: #f6df9b;
+  border: 1px solid rgba(251, 191, 36, 0.22);
+  background: rgba(113, 63, 18, 0.2);
+}
+
+@media (max-width: 900px) {
+  .ct-admin-actions-card,
+  .ct-action-confirm {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ct-admin-action-buttons,
+  .ct-action-confirm-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+/* Ajuste visual de botones de acciones administrativas */
+.ct-admin-action-buttons .primary-button,
+.ct-admin-action-buttons .secondary-button {
+  min-height: 2.6rem;
+  padding: 0.65rem 1.05rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 0.9rem;
+}
+
+/* Botón principal con tono más sobrio, acorde al diseño general */
+.ct-admin-action-buttons .primary-button {
+  background: linear-gradient(135deg, #1a3f6b 0%, #244b7f 100%);
+  border: 1px solid rgba(110, 168, 255, 0.22);
+  color: #f3f7ff;
+}
+
+/* Hover discreto */
+.ct-admin-action-buttons .primary-button:hover {
+  filter: brightness(1.06);
+}
+
+/* Botón secundario un poco más compacto también */
+.ct-admin-action-buttons .secondary-button {
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+}
+
+/* Igualar botones de confirmación con los botones superiores */
+.ct-action-confirm-buttons .primary-button,
+.ct-action-confirm-buttons .secondary-button {
+  min-height: 2.6rem;
+  padding: 0.65rem 1.05rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 0.9rem;
+}
+
+/* Confirmar ejecución: mismo estilo del botón principal superior */
+.ct-action-confirm-buttons .primary-button {
+  background: linear-gradient(135deg, #1a3f6b 0%, #244b7f 100%);
+  border: 1px solid rgba(110, 168, 255, 0.22);
+  color: #f3f7ff;
+}
+
+.ct-action-confirm-buttons .primary-button:hover {
+  filter: brightness(1.06);
+}
+
+/* Cancelar: mismo estilo del botón secundario superior */
+.ct-action-confirm-buttons .secondary-button {
+  background: rgba(16, 33, 61, 0.92);
+  border: 1px solid rgba(133, 160, 205, 0.26);
+  color: #e7eefb;
+}
+
+.ct-action-confirm-buttons .secondary-button:hover {
+  border-color: rgba(133, 160, 205, 0.4);
+  background: rgba(20, 40, 72, 0.96);
+}
+
+/* =========================================================
+   Historial compacto / Ver más
+   ========================================================= */
+
+.ct-show-more-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.ct-show-more-row > span {
+  color: #7388a8;
+  font-size: 0.72rem;
+}
+
+.ct-show-more-button {
+  min-height: 2rem;
+  padding: 0.42rem 0.85rem;
+  border: 1px solid rgba(111, 145, 193, 0.28);
+  border-radius: 0.75rem;
+  background: rgba(14, 35, 65, 0.9);
+  color: #c8d7eb;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.ct-show-more-button:hover {
+  background: rgba(21, 47, 83, 0.96);
+  border-color: rgba(111, 145, 193, 0.45);
+  transform: translateY(-1px);
+}
+
+.ct-show-more-quarantine {
+  padding-top: 12px;
+  border-top: 1px solid rgba(248, 113, 113, 0.11);
+}
+
+@media (max-width: 640px) {
+  .ct-show-more-row {
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+  }
+
+  .ct-show-more-button {
+    width: 100%;
+    max-width: 180px;
+  }
+}
+
+/* Filas de "Ver más / Ver menos" */
+.ct-show-more-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  padding-top: 0.9rem;
+}
+
+.ct-show-more-row span {
+  color: #9fb2d4;
+  font-size: 0.92rem;
+}
+
+/* Ajuste extra para el bloque de ejecuciones:
+   le da más aire abajo para que no quede pegado al borde */
+.ct-show-more-runs {
+  padding-bottom: 1rem;
+}
+
+/* El de cuarentena puede quedar un poco más compacto */
+.ct-show-more-quarantine {
+  padding-bottom: 0.15rem;
+}
+
+.ct-show-more-button {
+  min-height: 2.3rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(86, 128, 193, 0.35);
+  background: rgba(18, 44, 86, 0.88);
+  color: #dbe8ff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.ct-show-more-button:hover {
+  transform: translateY(-1px);
+  background: rgba(29, 58, 108, 0.96);
+}
+
+/* Variante roja para el bloque de registros aislados */
+.ct-show-more-button-danger {
+  border-color: rgba(171, 74, 95, 0.45);
+  background: rgba(86, 28, 42, 0.92);
+  color: #ffffff;
+}
+
+.ct-show-more-button-danger:hover {
+  background: rgba(104, 35, 50, 0.98);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ct-show-more-row {
+    align-items: stretch;
+  }
+
+  .ct-show-more-button,
+  .ct-show-more-button-danger {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* =========================================================
+   Operational Copilot
+   ========================================================= */
+
+.ct-copilot-action-cell {
+  min-width: 140px;
+  white-space: nowrap;
+}
+
+.ct-copilot-panel {
+  margin-top: 14px;
+}
+
+.ct-copilot-summary {
+  margin-top: 12px;
+}
+
+.ct-copilot-summary p,
+.ct-copilot-next-step p {
+  margin: 0;
+  color: #9fb1cc;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ct-copilot-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #9fb1cc;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.ct-copilot-list li + li {
+  margin-top: 5px;
+}
+
+.ct-copilot-next-step,
+.ct-copilot-evidence,
+.ct-copilot-review {
+  margin-top: 12px;
+}
+
+.ct-copilot-evidence {
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+@media (max-width: 760px) {
+  .ct-copilot-action-cell {
+    min-width: 125px;
+  }
+
+  .ct-copilot-list {
+    padding-left: 16px;
+  }
+}
+
+/* Copilot state buttons */
+
+.ct-copilot-action-cell .secondary-button {
+  width: 118px;
+  min-width: 118px;
+  justify-content: center;
+  text-align: center;
+}
+
+.ct-copilot-action-cell
+.ct-copilot-na-button:disabled {
+  opacity: 1;
+  cursor: default;
+  pointer-events: none;
+  color: #86efac;
+  background: rgba(22, 163, 74, 0.15);
+  border-color: rgba(74, 222, 128, 0.2);
+}
+
+.ct-copilot-action-cell
+.ct-copilot-na-button:disabled:hover {
+  color: #86efac;
+  background: rgba(22, 163, 74, 0.15);
+  border-color: rgba(74, 222, 128, 0.2);
+}
+
+/* Copilot review readability */
+
+.ct-copilot-review {
+  min-height: auto;
+  overflow: visible;
+}
+
+.ct-copilot-review > div:first-child {
+  min-width: 0;
+}
+
+.ct-copilot-review p {
+  margin: 5px 0 0;
+  padding-bottom: 2px;
+  line-height: 1.65;
+  overflow: visible;
+}
+
+.ct-copilot-review
+.ct-action-confirm-buttons {
+  align-self: center;
+}
+
+/* =========================================================
+   TRAZA · Operations Control Tower
+   Rediseño visual sobre la estructura funcional existente
+   ========================================================= */
+
+.ct-shell {
+  min-width: 0;
+  margin-top: var(--traza-space-5);
+  overflow: hidden;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-top: 4px solid var(--traza-yellow);
+  border-radius: var(--traza-radius-card);
+  background: var(--traza-white);
+  box-shadow: var(--traza-shadow-sm);
+}
+
+.ct-main-header {
+  gap: var(--traza-space-5);
+  padding-bottom: var(--traza-space-5);
+  border-bottom: 1px solid var(--traza-border);
+}
+
+.ct-main-header .eyebrow,
+.ct-section-kicker,
+.ct-resilience-kicker,
+.ct-decision-type {
+  color: var(--traza-yellow-strong);
+}
+
+.ct-main-header h2 {
+  color: var(--traza-text);
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ct-intro {
+  color: var(--traza-text-muted);
+  line-height: 1.6;
+}
+
+.ct-main-actions {
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ct-main-actions .secondary-button,
+.ct-collapse-button,
+.ct-close-detail,
+.ct-history-button,
+.ct-show-more-button {
+  min-height: 44px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-radius: var(--traza-radius-control);
+  background: var(--traza-white);
+  box-shadow: none;
+}
+
+.ct-main-actions > a.secondary-button {
+  border-color: #E6CF69;
+  background: var(--traza-yellow-soft);
+}
+
+.ct-main-actions .secondary-button:hover,
+.ct-collapse-button:hover,
+.ct-close-detail:hover,
+.ct-history-button:hover,
+.ct-show-more-button:hover {
+  color: var(--traza-text);
+  border-color: #C9C9C9;
+  background: var(--traza-gray-50);
+  transform: none;
+}
+
+.ct-section-chevron {
+  border-right-color: var(--traza-text-muted);
+  border-bottom-color: var(--traza-text-muted);
+}
+
+.ct-message,
+.ct-loading {
+  color: var(--traza-text-muted);
+}
+
+.ct-message.error {
+  color: var(--traza-danger-text);
+  border-color: var(--traza-danger-border);
+  background: var(--traza-danger-bg);
+}
+
+/* Resumen operacional */
+
+.ct-health-grid {
+  gap: var(--traza-space-3);
+  margin-top: var(--traza-space-5);
+}
+
+.ct-health-card {
+  min-height: 142px;
+  padding: var(--traza-space-4);
+  border: 1px solid var(--traza-border);
+  border-top: 3px solid var(--traza-yellow);
+  border-radius: 14px;
+  background: var(--traza-white);
+  box-shadow: 0 4px 16px rgba(26, 26, 26, 0.04);
+}
+
+.ct-health-card > span,
+.ct-count-grid span,
+.ct-trace-identity span,
+.ct-decision-meta span,
+.ct-quarantine-row span {
+  color: var(--traza-text-muted);
+}
+
+.ct-health-card small {
+  color: var(--traza-text-muted);
+}
+
+.ct-health-value strong {
+  color: var(--traza-text);
+  font-size: 17px;
+}
+
+.ct-status {
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.ct-status.success {
+  color: var(--traza-success-text);
+  border-color: var(--traza-success-border);
+  background: var(--traza-success-bg);
+}
+
+.ct-status.danger {
+  color: var(--traza-danger-text);
+  border-color: var(--traza-danger-border);
+  background: var(--traza-danger-bg);
+}
+
+.ct-status.neutral {
+  color: var(--traza-neutral-text);
+  border-color: var(--traza-neutral-border);
+  background: var(--traza-neutral-bg);
+}
+
+.ct-resilience-banner {
+  margin-top: var(--traza-space-4);
+  padding: 18px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-warning-border);
+  border-left: 4px solid var(--traza-yellow);
+  border-radius: 14px;
+  background: var(--traza-warning-bg);
+}
+
+.ct-resilience-banner.protected {
+  border-color: var(--traza-success-border);
+  border-left-color: var(--traza-success-text);
+  background: var(--traza-success-bg);
+}
+
+.ct-resilience-banner strong {
+  color: var(--traza-text);
+}
+
+.ct-resilience-banner p {
+  color: var(--traza-text-muted);
+}
+
+.ct-count-grid {
+  gap: var(--traza-space-2);
+  margin-top: var(--traza-space-4);
+}
+
+.ct-count-grid > div {
+  min-height: 88px;
+  padding: 14px;
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-surface-muted);
+}
+
+.ct-count-grid strong {
+  color: var(--traza-text);
+  font-size: 21px;
+}
+
+/* Acordeones y recorrido operacional */
+
+.ct-accordions {
+  margin-top: var(--traza-space-5);
+  border-top: 1px solid var(--traza-border);
+}
+
+.ct-accordion {
+  border-bottom: 1px solid var(--traza-border);
+}
+
+.ct-accordion-toggle {
+  min-height: 88px;
+  padding: 20px 4px;
+  color: var(--traza-text);
+}
+
+.ct-accordion-toggle:hover {
+  background: var(--traza-surface-muted);
+}
+
+.ct-accordion-toggle:hover h3,
+.ct-accordion-toggle h3 {
+  color: var(--traza-text);
+}
+
+.ct-accordion-toggle p {
+  color: var(--traza-text-muted);
+}
+
+.ct-accordion-action,
+.ct-accordion-toggle .ct-chevron {
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  background: var(--traza-white);
+}
+
+.ct-accordion-body {
+  padding-bottom: var(--traza-space-5);
+}
+
+.ct-flow-strip {
+  gap: var(--traza-space-2);
+  margin: 3px 0 var(--traza-space-5);
+  padding: var(--traza-space-3);
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-surface-muted);
+  scrollbar-width: thin;
+}
+
+.ct-flow-step {
+  min-height: 40px;
+  border: 1px solid var(--traza-border);
+  background: var(--traza-white);
+}
+
+.ct-flow-step > span {
+  color: var(--traza-text);
+  background: var(--traza-yellow);
+}
+
+.ct-flow-step strong {
+  color: var(--traza-text);
+}
+
+.ct-flow-arrow {
+  color: var(--traza-text-muted);
+}
+
+.ct-subsection-head h4,
+.ct-trace-head h3,
+.ct-quarantine-head h4 {
+  color: var(--traza-text);
+}
+
+.ct-subsection-head p,
+.ct-trace-section-heading small,
+.ct-quarantine-head p {
+  color: var(--traza-text-muted);
+}
+
+/* Tablas e historiales */
+
+.ct-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-white);
+  scrollbar-width: thin;
+}
+
+.ct-table {
+  min-width: 760px;
+  background: var(--traza-white);
+}
+
+.ct-table th {
+  padding: 12px;
+  color: var(--traza-text-muted);
+  border-bottom: 1px solid var(--traza-border);
+  background: var(--traza-gray-50);
+}
+
+.ct-table td {
+  padding: 13px 12px;
+  color: var(--traza-text-muted);
+  border-top: 1px solid var(--traza-border);
+}
+
+.ct-table tbody tr:hover {
+  background: var(--traza-surface-muted);
+}
+
+.ct-table td strong {
+  color: var(--traza-text);
+}
+
+.ct-table td > span:not(.ct-status),
+.ct-operation-id {
+  color: var(--traza-text-muted);
+}
+
+.ct-operation-id {
+  overflow-wrap: anywhere;
+}
+
+.ct-selected-row {
+  background: var(--traza-yellow-soft);
+  box-shadow: inset 3px 0 0 var(--traza-yellow);
+}
+
+/* Detalle de trazabilidad */
+
+.ct-trace-panel {
+  margin-top: var(--traza-space-4);
+  padding: 20px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-left: 4px solid var(--traza-yellow);
+  border-radius: 14px;
+  background: var(--traza-surface-muted);
+}
+
+.ct-trace-head {
+  gap: var(--traza-space-4);
+}
+
+.ct-trace-head-actions {
+  flex-wrap: wrap;
+}
+
+.ct-close-detail {
+  min-height: 40px;
+}
+
+.ct-trace-identity {
+  gap: var(--traza-space-3);
+  margin-top: var(--traza-space-4);
+}
+
+.ct-trace-identity > div {
+  padding: 14px;
+  border: 1px solid var(--traza-border);
+  border-radius: 11px;
+  background: var(--traza-white);
+}
+
+.ct-trace-identity code {
+  color: var(--traza-text);
+  overflow-wrap: anywhere;
+}
+
+.ct-trace-identity small {
+  color: var(--traza-text-muted);
+}
+
+.ct-trace-grid {
+  gap: var(--traza-space-3);
+  margin-top: var(--traza-space-3);
+}
+
+.ct-trace-card,
+.ct-audit-card,
+.ct-lineage-card {
+  padding: var(--traza-space-4);
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-white);
+}
+
+.ct-trace-title {
+  color: var(--traza-text-muted);
+}
+
+.ct-trace-row,
+.ct-audit-row {
+  border-top-color: var(--traza-border);
+}
+
+.ct-trace-row strong,
+.ct-audit-row strong {
+  color: var(--traza-text);
+}
+
+.ct-trace-row span,
+.ct-audit-row span,
+.ct-correlation-label {
+  color: var(--traza-text-muted) !important;
+}
+
+.ct-lineage-card.available {
+  border-color: var(--traza-success-border);
+  box-shadow: inset 4px 0 0 var(--traza-success-text);
+}
+
+.ct-lineage-card.pending {
+  border-color: var(--traza-warning-border);
+  box-shadow: inset 4px 0 0 var(--traza-yellow);
+}
+
+.ct-lineage-description,
+.ct-lineage-pending p {
+  color: var(--traza-text-muted);
+}
+
+.ct-lineage-pending strong {
+  color: var(--traza-warning-text);
+}
+
+.ct-lineage-flow > div {
+  padding: 12px;
+  border: 1px solid var(--traza-border);
+  background: var(--traza-surface-muted);
+}
+
+.ct-lineage-flow > div > span {
+  color: var(--traza-text-muted);
+}
+
+.ct-lineage-flow > div > strong {
+  color: var(--traza-text);
+  overflow-wrap: anywhere;
+}
+
+/* Decisiones administrativas */
+
+.ct-decision-list {
+  gap: var(--traza-space-3);
+}
+
+.ct-decision-card {
+  padding: var(--traza-space-4);
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-white);
+}
+
+.ct-decision-main strong {
+  color: var(--traza-text);
+}
+
+.ct-decision-main small,
+.ct-decision-evidence {
+  color: var(--traza-text-muted);
+}
+
+.ct-decision-meta {
+  gap: var(--traza-space-2);
+}
+
+.ct-decision-meta > div {
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid var(--traza-border);
+  background: var(--traza-surface-muted);
+}
+
+.ct-decision-meta strong,
+.ct-decision-evidence strong,
+.ct-decision-evidence code {
+  color: var(--traza-text);
+  overflow-wrap: anywhere;
+}
+
+.ct-divider {
+  color: var(--traza-border);
+}
+
+.ct-history-button {
+  min-height: 40px;
+}
+
+/* DataOps, Quality Gates y Gold */
+
+.ct-admin-actions-card {
+  gap: var(--traza-space-5);
+  padding: var(--traza-space-4);
+  border: 1px solid var(--traza-border);
+  border-left: 4px solid var(--traza-yellow);
+  border-radius: 12px;
+  background: var(--traza-surface-muted);
+}
+
+.ct-admin-action-copy h4 {
+  color: var(--traza-text);
+}
+
+.ct-admin-action-copy p {
+  color: var(--traza-text-muted);
+}
+
+.ct-admin-action-buttons .primary-button,
+.ct-action-confirm-buttons .primary-button {
+  min-height: 44px;
+  color: var(--traza-text);
+  border: 1px solid #D9B000;
+  border-radius: var(--traza-radius-control);
+  background: var(--traza-yellow);
+  box-shadow: none;
+}
+
+.ct-admin-action-buttons .primary-button:hover,
+.ct-action-confirm-buttons .primary-button:hover {
+  filter: brightness(0.96);
+}
+
+.ct-admin-action-buttons .secondary-button,
+.ct-action-confirm-buttons .secondary-button {
+  min-height: 44px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-radius: var(--traza-radius-control);
+  background: var(--traza-white);
+}
+
+.ct-admin-action-buttons .secondary-button:hover,
+.ct-action-confirm-buttons .secondary-button:hover,
+.ct-copilot-action-cell .secondary-button:hover {
+  color: var(--traza-text);
+  border-color: #C9C9C9;
+  background: var(--traza-gray-50);
+}
+
+.ct-action-confirm {
+  gap: var(--traza-space-4);
+  padding: 14px 16px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  border-radius: 12px;
+  background: var(--traza-surface-muted);
+}
+
+.ct-action-confirm.warning {
+  border-color: var(--traza-warning-border);
+  background: var(--traza-warning-bg);
+}
+
+.ct-action-confirm strong {
+  color: var(--traza-text);
+}
+
+.ct-action-confirm p {
+  color: var(--traza-text-muted);
+}
+
+.ct-action-confirm.warning strong {
+  color: var(--traza-warning-text);
+}
+
+.ct-action-notice {
+  padding: 13px 15px;
+  border-radius: var(--traza-radius-control);
+}
+
+.ct-action-notice.success {
+  color: var(--traza-success-text);
+  border-color: var(--traza-success-border);
+  background: var(--traza-success-bg);
+}
+
+.ct-action-notice.warning {
+  color: var(--traza-warning-text);
+  border-color: var(--traza-warning-border);
+  background: var(--traza-warning-bg);
+}
+
+.ct-show-more-row > span,
+.ct-show-more-row span {
+  color: var(--traza-text-muted);
+}
+
+.ct-show-more-button {
+  min-height: 40px;
+  color: var(--traza-text);
+  border-color: var(--traza-border);
+  background: var(--traza-white);
+}
+
+.ct-show-more-button-danger {
+  color: var(--traza-danger-text);
+  border-color: var(--traza-danger-border);
+  background: var(--traza-danger-bg);
+}
+
+.ct-show-more-button-danger:hover {
+  color: var(--traza-danger-text);
+  border-color: var(--traza-danger-border);
+  background: var(--traza-danger-bg);
+}
+
+.ct-quarantine {
+  margin-top: var(--traza-space-4);
+  padding: var(--traza-space-4);
+  border: 1px solid var(--traza-danger-border);
+  border-left: 4px solid var(--traza-danger-text);
+  border-radius: 12px;
+  background: var(--traza-danger-bg);
+}
+
+.ct-quarantine-row {
+  border-top-color: var(--traza-danger-border);
+}
+
+.ct-quarantine-row > div {
+  padding: 11px;
+  border: 1px solid var(--traza-danger-border);
+  background: var(--traza-white);
+}
+
+.ct-quarantine-row strong {
+  color: var(--traza-text);
+}
+
+.ct-show-more-quarantine {
+  border-top-color: var(--traza-danger-border);
+}
+
+/* Operational Copilot y HITL */
+
+.ct-copilot-panel {
+  border-left-color: var(--traza-yellow);
+  background: var(--traza-white);
+}
+
+.ct-copilot-summary {
+  border-left: 4px solid var(--traza-yellow);
+  background: var(--traza-yellow-soft);
+}
+
+.ct-copilot-summary p,
+.ct-copilot-next-step p,
+.ct-copilot-list {
+  color: var(--traza-text-muted);
+  font-size: 12px;
+}
+
+.ct-copilot-next-step {
+  border-left: 4px solid var(--traza-success-text);
+  background: var(--traza-success-bg);
+}
+
+.ct-copilot-evidence {
+  border-left: 4px solid var(--traza-neutral-text);
+  background: var(--traza-gray-50);
+  scrollbar-width: thin;
+}
+
+.ct-copilot-review {
+  border-left-width: 4px;
+}
+
+.ct-copilot-action-cell .secondary-button {
+  min-height: 40px;
+  color: var(--traza-text);
+  border: 1px solid var(--traza-border);
+  background: var(--traza-white);
+}
+
+.ct-copilot-action-cell
+.ct-copilot-na-button:disabled,
+.ct-copilot-action-cell
+.ct-copilot-na-button:disabled:hover {
+  color: var(--traza-success-text);
+  border-color: var(--traza-success-border);
+  background: var(--traza-success-bg);
+}
+
+.ct-shell :where(button, a):focus-visible {
+  outline: 2px solid var(--traza-text);
+  outline-offset: 2px;
+  box-shadow: var(--traza-focus-ring);
+}
+
+/* Responsive Control Tower */
+
+@media (max-width: 1100px) {
+  .ct-main-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ct-main-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .ct-admin-actions-card,
+  .ct-action-confirm {
+    align-items: stretch;
+  }
+
+  .ct-admin-action-buttons,
+  .ct-action-confirm-buttons {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .ct-shell {
+    padding: 20px;
+  }
+
+  .ct-main-header,
+  .ct-trace-head {
+    gap: var(--traza-space-4);
+  }
+
+  .ct-main-actions,
+  .ct-trace-head-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ct-main-actions > *,
+  .ct-trace-head-actions > *,
+  .ct-admin-action-buttons > *,
+  .ct-action-confirm-buttons > * {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ct-health-grid,
+  .ct-count-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ct-trace-panel {
+    padding: var(--traza-space-4);
+  }
+
+  .ct-trace-row,
+  .ct-audit-row,
+  .ct-decision-main {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ct-trace-value,
+  .ct-audit-row > div:last-child {
+    text-align: left;
+  }
+
+  .ct-trace-value .ct-status {
+    margin-left: 0;
+  }
+
+  .ct-flow-strip,
+  .ct-table-wrap {
+    overscroll-behavior-inline: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  .ct-shell {
+    padding: var(--traza-space-4);
+    border-radius: 14px;
+  }
+
+  .ct-main-header {
+    padding-bottom: var(--traza-space-4);
+  }
+
+  .ct-main-header h2 {
+    font-size: 24px;
+  }
+
+  .ct-health-grid,
+  .ct-count-grid,
+  .ct-trace-grid,
+  .ct-trace-identity,
+  .ct-decision-meta,
+  .ct-quarantine-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-health-card {
+    min-height: 0;
+  }
+
+  .ct-accordion-toggle {
+    gap: var(--traza-space-3);
+    padding: var(--traza-space-4) 0;
+  }
+
+  .ct-accordion-action {
+    min-width: 72px;
+  }
+
+  .ct-admin-action-buttons,
+  .ct-action-confirm-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ct-resilience-banner,
+  .ct-admin-actions-card,
+  .ct-quarantine,
+  .ct-trace-panel {
+    padding: 14px;
+  }
+}

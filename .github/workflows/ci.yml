@@ -1,0 +1,230 @@
+name: BancoCloud CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend-tests:
+    name: Backend / Pytest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: backend
+
+    env:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bancocloud_ci_password
+      POSTGRES_DB: postgres
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            backend/requirements-auth-additions.txt
+
+      - name: Start PostgreSQL 17 for tests
+        run: |
+          docker run \
+            --name bancocloud-ci-postgres \
+            -e POSTGRES_USER="$POSTGRES_USER" \
+            -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+            -e POSTGRES_DB="$POSTGRES_DB" \
+            -p 5433:5432 \
+            -d postgres:17
+
+      - name: Wait for PostgreSQL
+        run: |
+          for attempt in {1..30}; do
+            if docker exec bancocloud-ci-postgres \
+              pg_isready \
+              -h 127.0.0.1 \
+              -U "$POSTGRES_USER" \
+              -d "$POSTGRES_DB"
+            then
+              echo "PostgreSQL is ready."
+              exit 0
+            fi
+
+            sleep 1
+          done
+
+          echo "PostgreSQL did not become ready."
+          docker logs bancocloud-ci-postgres
+          exit 1
+
+      - name: Initialize BancoCloud database schema
+        run: |
+          for migration in $(find ../database -maxdepth 1 -type f -name '*.sql' | sort); do
+            echo "Applying migration: $migration"
+            docker exec -i bancocloud-ci-postgres \
+              psql \
+              -v ON_ERROR_STOP=1 \
+              -U "$POSTGRES_USER" \
+              -d "$POSTGRES_DB" \
+              < "$migration"
+          done
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install backend dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run backend tests
+        run: python -m pytest -q
+
+      - name: Remove PostgreSQL test container
+        if: always()
+        run: |
+          docker rm -f bancocloud-ci-postgres \
+            > /dev/null 2>&1 || true
+
+  frontend-quality:
+    name: Frontend / Lint and Build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build frontend
+        run: npm run build
+
+  security:
+    name: Security / Dependency Audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            backend/requirements-auth-additions.txt
+
+      - name: Install backend dependencies and pip-audit
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pip-audit
+
+      - name: Audit Python dependencies
+        working-directory: backend
+        run: python -m pip_audit -r requirements.txt
+
+      - name: Validate Python dependency consistency
+        working-directory: backend
+        run: python -m pip check
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Audit frontend dependencies
+        working-directory: frontend
+        run: npm audit --audit-level=high
+
+  docker-build:
+    name: Docker / Build Images
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Build backend image
+        run: |
+          docker build \
+            -t bancocloud-backend:ci \
+            ./backend
+
+      - name: Build frontend image
+        run: |
+          docker build \
+            -t bancocloud-frontend:ci \
+            ./frontend
+
+      - name: Verify Docker images
+        run: |
+          docker image inspect bancocloud-backend:ci > /dev/null
+          docker image inspect bancocloud-frontend:ci > /dev/null
+          echo "BancoCloud Docker images built successfully."
+
+  terraform-quality:
+    name: Terraform / Validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: infra/terraform
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Terraform 1.16.2
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "1.16.2"
+          terraform_wrapper: false
+
+      - name: Check Terraform formatting
+        run: terraform fmt -check -recursive
+
+      - name: Initialize Terraform
+        run: terraform init -backend=false -input=false
+
+      - name: Validate Terraform configuration
+        run: terraform validate -no-color

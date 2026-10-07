@@ -1,0 +1,33 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+node_modules/
+dist/
+.pytest_cache/
+*.pyc
+
+# Archivos temporales generados durante el laboratorio
+_staging*/
+frontend_backup*/
+*_backup*
+*_respaldo*
+main_paso*.py
+
+# IDE / sistema operativo
+.vscode/
+.DS_Store
+Thumbs.db
+LEEME_PASO_*.txt
+
+# Parches y utilidades temporales de desarrollo
+_fix_*/
+docs/inspect_contracts.py
+docs/inspect_schemas.py
+
+# Instaladores y respaldos temporales locales
+_step_*/
+backup_*/
+backend_backup_*/
+frontend_backup_*/

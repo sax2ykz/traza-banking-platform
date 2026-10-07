@@ -1,0 +1,37 @@
+:root {
+  --traza-white: #FFFFFF;
+  --traza-text: #1A1A1A;
+  --traza-yellow: #F4C414;
+  --traza-gray-50: #F5F5F5;
+  --traza-text-muted: #666666;
+  --traza-border: #E3E3E3;
+
+  --traza-yellow-soft: #FFF8D6;
+  --traza-yellow-strong: #6B5600;
+  --traza-surface-muted: #FAFAFA;
+  --traza-success-bg: #EAF7EF;
+  --traza-success-text: #17643A;
+  --traza-success-border: #BFE5CC;
+  --traza-warning-bg: #FFF7D6;
+  --traza-warning-text: #6B5600;
+  --traza-warning-border: #F1DC84;
+  --traza-danger-bg: #FDECEC;
+  --traza-danger-text: #9F2D2D;
+  --traza-danger-border: #F2C3C3;
+  --traza-neutral-bg: #F1F3F5;
+  --traza-neutral-text: #4B5563;
+  --traza-neutral-border: #D8DDE3;
+
+  --traza-radius-control: 10px;
+  --traza-radius-card: 16px;
+  --traza-shadow-sm: 0 8px 24px rgba(26, 26, 26, 0.06);
+  --traza-shadow-topbar: 0 1px 0 rgba(26, 26, 26, 0.04);
+  --traza-focus-ring: 0 0 0 3px rgba(244, 196, 20, 0.35);
+
+  --traza-space-1: 4px;
+  --traza-space-2: 8px;
+  --traza-space-3: 12px;
+  --traza-space-4: 16px;
+  --traza-space-5: 24px;
+  --traza-space-6: 32px;
+}
